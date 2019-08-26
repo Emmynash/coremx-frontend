@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Private",
+    "description": "Private Patients"
+  },
+  {
+    "name": "Walk-In",
+    "description": "Walk-In Patients"
+  },
+  {
+    "name": "NHIS",
+    "description": "National Health Insurance Scheme"
+  },
+  {
+    "name": "PHIS",
+    "description": "Private Health Insurance Scheme"
+  },
+  {
+    "name": "Corporate",
+    "description": "Corporate Body"
+  }
+]

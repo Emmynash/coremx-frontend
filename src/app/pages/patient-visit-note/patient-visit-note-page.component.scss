@@ -1,0 +1,22 @@
+@import '~assets/sass/variables';
+
+:host {
+  .add-action-box {
+    bottom: $module-rem * 8;
+    position: fixed;
+    right: $module-rem * 2;
+    z-index: 9997;
+
+    .tc-btn {
+      font-size: 30px;
+    }
+  }
+  .actions {
+    display: flex;
+    margin: -$module-rem / 4;
+
+    .tc-btn {
+      margin: $module-rem / 4;
+    }
+  }
+}

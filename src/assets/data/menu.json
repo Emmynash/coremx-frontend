@@ -1,0 +1,35 @@
+[{
+        "title": "Overview",
+        "icon": {
+            "class": "icofont-gift-box"
+        },
+        "routing": "main"
+    },
+
+    {
+        "title": "Patient Diagnosis",
+        "icon": {
+            "class": "icofont-eco-energy"
+        },
+        "routing": "patient-diagnosis"
+    },
+    {
+        "title": "Patient Visit Note",
+        "icon": {
+            "class": "icofont-eco-energy"
+        },
+        "routing": "patient-visit-note"
+    },
+    {
+        "title": "Services",
+        "icon": {
+            "class": "icofont-ui-cart"
+        },
+        "routing": "service"
+    },
+
+    {
+        "title": "Extras",
+        "groupTitle": true
+    }
+]

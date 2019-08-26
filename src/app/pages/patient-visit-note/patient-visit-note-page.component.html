@@ -1,0 +1,194 @@
+<tc-card class="mb-0">
+    <!-- <h1>H1 theme heading</h1> -->
+    <p>
+        This allows for the creation of Patient Visit Note
+    </p>
+    <br/>
+</tc-card>
+
+<tc-card class="mb-0">
+    <tc-table [rows]="tableData" [hovered]="true" [pagination]="true">
+        <tc-table-col [columnTitle]="'Reason'" [columnName]="'reason'" [enableSorting]="true">
+            <ng-template #tableTDTemplate let-value>
+                <span class="d-flex align-items-center nowrap" [tcColor]="'#336cfb'">
+              <tc-icon [iconClass]="'icofont-ui-email'" [tcFontSize]="16" [padding]="0" class="mr-1"></tc-icon> {{ value }}
+            </span>
+            </ng-template>
+        </tc-table-col>
+
+        <tc-table-col [columnTitle]="'Hospital Visited'" [columnName]="'hospital_visited'" [enableSorting]="false">
+        </tc-table-col>
+
+        <tc-table-col [columnTitle]="'Module'" [columnName]="'module'" [enableSorting]="false">
+        </tc-table-col>
+
+        <tc-table-col [columnTitle]="'Source App'" [columnName]="'source_app'" [enableSorting]="false">
+        </tc-table-col>
+
+        <tc-table-col [columnTitle]="'Note Type'" [columnName]="'note_type'" [enableSorting]="false">
+        </tc-table-col>
+
+        <tc-table-col [columnTitle]="'Noted By'" [columnName]="'noted_by'" [enableSorting]="false">
+        </tc-table-col>
+
+        <tc-table-col [columnTitle]="'Description'" [columnName]="'decription'" [enableSorting]="false">
+        </tc-table-col>
+
+        <tc-table-col [columnTitle]="'Date'" [columnName]="'date_of_entry'" [enableSorting]="false">
+        </tc-table-col>
+
+
+        <!-- <tc-table-col [columnTitle]="'Phone'" [enableSorting]="false">
+        <ng-template #tableTDTemplate let-row="row">
+            <span class="d-flex align-items-center nowrap" [tcColor]="'#336cfb'">
+              <tc-icon [iconClass]="'icofont-ui-cell-phone'" [tcFontSize]="16" [padding]="0" class="mr-1"></tc-icon>
+              {{ row.phone ? row.phone : "" }}
+            </span>
+          </ng-template>
+      </tc-table-col> -->
+
+        <!-- <tc-table-col [columnTitle]="'Address'" [enableSorting]="false">
+          <ng-template #tableTDTemplate let-row="row">
+              <span class="nowrap" [tcColor]="'#a5a5a5'">{{ row.address ? row.address : "" }}</span>
+          </ng-template>
+        </tc-table-col> -->
+
+        <tc-table-col [columnTitle]="'Actions'" [columnName]="'actions'">
+            <ng-template #tableTDTemplate let-row="row">
+                <div class="actions">
+                    <button tc-button [afterIcon]="'icofont-ui-edit'" [view]="'info'" [square]="true" [tcShape]="500" [size]="'sm'" (click)="edit(row)"></button>
+
+                    <button tc-button *ngIf="!row.reserved_name" [afterIcon]="'icofont-ui-delete'" [view]="'error'" [square]="true" [tcShape]="500" [size]="'sm'" (click)="remove(row)"></button>
+                </div>
+            </ng-template>
+        </tc-table-col>
+    </tc-table>
+</tc-card>
+
+
+<div class="add-action-box">
+    <button tc-button [afterIcon]="'icofont-plus'" [view]="'accent'" [square]="true" [tcShape]="500" (click)="openModal(modalBody, 'Add Patient Visit Note', modalFooter)"></button>
+</div>
+
+<!-- Modal window -->
+<ng-container>
+    <ng-template #modalBody>
+        <form [formGroup]="patientVisitNoteForm" novalidate>
+
+            <tc-form-group>
+                <tc-input [placeholder]="'Hospital Visited'" [type]="'text'" formControlName="hospital_visited">
+                </tc-input>
+            </tc-form-group>
+
+            <tc-form-group>
+                <tc-input [placeholder]="'Module'" [type]="'text'" formControlName="module"></tc-input>
+            </tc-form-group>
+
+            <tc-form-group>
+                <tc-input [placeholder]="'Source App'" [type]="'text'" formControlName="source_app"></tc-input>
+            </tc-form-group>
+
+            <div class="row">
+                <div class="col-12 col-sm-6">
+                    <tc-form-group>
+                        <tc-input [placeholder]="'Encounter Id'" [type]="'text'" formControlName="encounter_id">
+                        </tc-input>
+                    </tc-form-group>
+                </div>
+
+                <div class="col-12 col-sm-6">
+                    <tc-form-group>
+                        <tc-input [placeholder]="'Note Type'" [type]="'text'" formControlName="note_type">
+                        </tc-input>
+                    </tc-form-group>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-6">
+                    <tc-form-group>
+                        <tc-input [placeholder]="'Emr Id'" [type]="'text'" formControlName="emr_id">
+                        </tc-input>
+                    </tc-form-group>
+                </div>
+
+                <div class="col-12 col-sm-6">
+                    <tc-form-group>
+                        <tc-input [placeholder]="'Date'" [type]="'text'" formControlName="date_of_entry">
+                        </tc-input>
+                    </tc-form-group>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-sm-6">
+                    <tc-form-group>
+                        <tc-select [placeholder]="'reason'" formControlName="reason" [options]="reason"></tc-select>
+                    </tc-form-group>
+                </div>
+
+                <div class="col-12 col-sm-6">
+                    <tc-form-group>
+                        <tc-input [placeholder]="'Noted By'" [type]="'text'" formControlName="noted_by"></tc-input>
+                    </tc-form-group>
+                </div>
+            </div>
+
+
+            <tc-form-group class="mb-0">
+                <tc-textarea [placeholder]="'Description'" formControlName="decription"></tc-textarea>
+            </tc-form-group>
+        </form>
+    </ng-template>
+
+    <ng-template #modalFooter>
+        <div class="actions justify-content-between">
+            <button tc-button [type]="'button'" [view]="'error'" (click)="closeModal()">Cancel</button>
+            <button tc-button [view]="'info'" [disabled]="patientVisitNoteForm.invalid" (click)="addPatientVisitNote(patientVisitNoteForm)">
+            Add Patient Visit Note
+          </button>
+        </div>
+    </ng-template>
+    <ng-template #modalUpdateFooter>
+        <div class="actions justify-content-between">
+            <button tc-button [type]="'button'" [view]="'error'" (click)="closeModal()">Cancel</button>
+            <button tc-button [view]="'info'" [disabled]="patientVisitNoteForm.invalid" (click)="update(patientVisitNoteForm)">
+              Update Patient Visit Note
+            </button>
+        </div>
+    </ng-template>
+</ng-container>
+<!-- end Modal window -->
+
+
+
+
+<!-- Modal window -->
+<ng-container>
+    <ng-template #modalWarningBody>
+        <div class="row">
+            <div class="col-12">
+                <!-- <tc-card>           -->
+                <tc-alert [view]="'warning'" class="mb-4" [beforeIcon]="'icofont-info-circle'">
+                    <strong>Read Carefully:</strong> You are going to delete Patient Visit Note
+                </tc-alert> -->
+                <!-- </tc-card> -->
+            </div>
+        </div>
+        <form [formGroup]="ConfirmDeleteForm" novalidate>
+            <tc-form-group>
+                <tc-checkbox formControlName="isConfirmed">Check to confirm you know what you are doing</tc-checkbox>
+                <tc-input formControlName="id" hidden></tc-input>
+            </tc-form-group>
+        </form>
+    </ng-template>
+
+    <ng-template #modalWarningFooter>
+        <div class="actions justify-content-between">
+            <button tc-button [type]="'button'" [view]="'info'" (click)="closeConfirmDeleteModal()">Cancel</button>
+            <button tc-button [view]="'error'" [disabled]="ConfirmDeleteForm.invalid || !ConfirmDeleteForm.value.isConfirmed" (click)="confirmRemove(ConfirmDeleteForm)">
+            Proceed
+          </button>
+        </div>
+    </ng-template>
+</ng-container>
+<!-- end Modal window -->

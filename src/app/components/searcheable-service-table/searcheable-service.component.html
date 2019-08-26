@@ -1,0 +1,26 @@
+<tc-card class="mb-0">
+  <tc-table [rows]="tableData" [hovered]="true" [search]="true">
+    <tc-table-col [columnTitle]="'Name'" [columnName]="'name'" [enableSorting]="true"></tc-table-col>
+    <tc-table-col [columnTitle]="'Position'" [columnName]="'position'">
+      <ng-template #tableTDTemplate let-value>
+        <span [tcColor]="'#a5a5a5'">{{ value }}</span>
+      </ng-template>
+    </tc-table-col>
+    <tc-table-col [columnTitle]="'Office'" [columnName]="'office'"></tc-table-col>
+    <tc-table-col [columnTitle]="'Age'" [columnName]="'age'">
+      <ng-template #tableTDTemplate let-value>
+        <tc-badge [outline]="true" [view]="'error'">{{ value }}</tc-badge>
+      </ng-template>
+    </tc-table-col>
+    <tc-table-col [columnTitle]="'Date'" [columnName]="'start-date'">
+      <ng-template #tableTDTemplate let-value>
+        <span class="nowrap" [tcColor]="'#a5a5a5'">{{ value }}</span>
+      </ng-template>
+    </tc-table-col>
+    <tc-table-col [columnTitle]="'Salary'" [columnName]="'salary'" [enableSorting]="true">
+      <ng-template #tableTDTemplate let-value>
+        <tc-badge class="nowrap" [view]="'accent'">{{ value }}</tc-badge>
+      </ng-template>
+    </tc-table-col>
+  </tc-table>
+</tc-card>
