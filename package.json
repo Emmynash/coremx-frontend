@@ -38,6 +38,7 @@
         "@swimlane/ngx-charts": "10.0.0",
         "echarts": "4.2.0-rc.2",
         "echarts-gl": "1.1.1",
+        "express": "4.16.4",
         "ngx-echarts": "4.1.0",
         "@agm/core": "1.0.0-beta.5",
         "leaflet": "1.4.0",
@@ -46,6 +47,7 @@
         "fullcalendar": "3.6.1",
         "animate.css": "3.7.0",
         "web-animations-js": "2.3.1",
+        "path": "0.12.7",
         "@types/jquery": "3.3.29",
         "apollo-angular": "^1.6.0",
         "apollo-angular-link-http": "^1.6.0",
@@ -76,8 +78,6 @@
         "protractor": "5.4.0",
         "ts-node": "8.0.1",
         "tslint": "5.12.1",
-        "typescript": "3.2.4",
-        "express": "4.16.4",
-        "path": "0.12.7"
+        "typescript": "3.2.4"
     }
 }
